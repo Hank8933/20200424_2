@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 char *mstrcat(char *a, const char *b)
 {
     char *p = a;
@@ -16,14 +17,14 @@ char *mstrncat(char *a, const char *b, int n)
     return a;
 }
 
-char* mstrcpy(char *a, char const *b)
+char* mstrcpy(char *a, const char *b)
 {
     char *p = a;
     while (*p++ = *b++);
     return a;
 }
 
-char* mstrncpy(char *a, char const *b, int n)
+char* mstrncpy(char *a, const char *b, int n)
 {
     char *p = a;
     while (n-- && (*p++ = *b++));
@@ -53,13 +54,13 @@ size_t mstrlen(const char *a)
     return a - p;
 }
 
-char *mstrchr(char *a, char c)
+char *mstrchr(char *a, int c)
 {
     while (*a) if (*a++ == c) return a-1;
     return NULL;
 }
 
-char *mstrrchr(char *a, char c)
+char *mstrrchr(char *a, int c)
 {
     while (*++a);
     while (*--a) if (*a == c) return a;
@@ -103,7 +104,7 @@ size_t mstrcspn(const char *a, char *b)
     return n;
 }
 
-char *mstrpbrk(const char *a, char *b)
+char *mstrpbrk(char *a, char *b)
 {
     int n = 0;
     char *p;
